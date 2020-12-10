@@ -1,0 +1,58 @@
+body{
+    height: 100%;
+    background-color: lightskyblue;
+}
+
+.char-boy{
+    width: 312px;
+    overflow: hidden;
+}
+
+.img-boy{
+    height: 287px;
+    animation: moveB 1s steps(15) infinite;
+}
+
+.img-boy-jump{
+    height: 287px;
+    animation: moveB 1s steps(14) infinite;
+}
+
+
+.char-girl{ 
+    width: 263.5px;
+    overflow: hidden;
+}
+
+.img-girl{
+    height: 287px;
+    animation: moveG 1s steps(20) infinite;
+}
+
+.img-girl-jump{
+    height: 287px;
+    animation: moveG 1s steps(30) infinite;
+    
+}
+
+@keyframes moveB {
+    from{
+        transform: translate3d(0px,0,0);
+    }
+
+    to{
+        transform: translate3d(-100%,0,0);
+    }
+}
+
+
+
+@keyframes moveG {
+    from{
+        transform: translate3d(0px,0,0);
+    }
+
+    to{
+        transform: translate3d(-100%,0,0);
+    }
+}
