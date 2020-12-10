@@ -19,29 +19,30 @@ class Human{
         
         let mainR = document.getElementById('main-row');
         
+        let row = document.createElement('div');
+        row.classList.add('col-lg-3');
+        row.innerHTML= 'a';
 
         switch (this.gender) {
-            
+
             case 'boy':
-                let row = document.createElement('div');
-                row.classList.add('col-lg-3')
                 row.innerHTML = `<div class="char-boy">` +
                     `<img class = "img-boy" src="static/images/boy-walk.png" alt="", id = "${String(count.nums)}"  >` +
                     `</div>`
                 
-                mainR.appendChild(row)
+                mainR?.appendChild(row)
                 break;
      
 
             case 'girl':
-                let row2 = document.createElement('div');
-                row2.classList.add('col-lg-3')
-                row2.innerHTML = `<div class="char-girl">` +
+                // let row2 = document.createElement('div');
+                // row2.classList.add('col-lg-3')
+                row.innerHTML = `<div class="char-girl">` +
                     `<img class = "img-girl" src="static/images/girl-walk.png" alt="" id = ${count.nums}>` +
                     `</div>`  
                 
                 
-                mainR.appendChild(row2)
+                mainR?.appendChild(row)
                 break;
         
             default:
@@ -49,11 +50,10 @@ class Human{
         }
 
 
-        (document.querySelectorAll('img')).forEach(function(image){
-            image.addEventListener("click",function(e){
-                console.log(e);
-            })
-        })
+        row.onclick = () => {
+            console.log(this.id,this.gender)
+            ChangeMove(this.gender,String(this.id));
+        }
 
 
     }

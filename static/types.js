@@ -17,36 +17,37 @@ var count = {
 };
 var Human = /** @class */ (function () {
     function Human(name, gender) {
+        var _this = this;
         count.nums += 1;
         this.name = name;
         this.gender = gender;
         this.id = count.nums;
         var mainR = document.getElementById('main-row');
+        var row = document.createElement('div');
+        row.classList.add('col-lg-3');
+        row.innerHTML = 'a';
         switch (this.gender) {
             case 'boy':
-                var row = document.createElement('div');
-                row.classList.add('col-lg-3');
                 row.innerHTML = "<div class=\"char-boy\">" +
                     ("<img class = \"img-boy\" src=\"static/images/boy-walk.png\" alt=\"\", id = \"" + String(count.nums) + "\"  >") +
                     "</div>";
-                mainR.appendChild(row);
+                mainR === null || mainR === void 0 ? void 0 : mainR.appendChild(row);
                 break;
             case 'girl':
-                var row2 = document.createElement('div');
-                row2.classList.add('col-lg-3');
-                row2.innerHTML = "<div class=\"char-girl\">" +
+                // let row2 = document.createElement('div');
+                // row2.classList.add('col-lg-3')
+                row.innerHTML = "<div class=\"char-girl\">" +
                     ("<img class = \"img-girl\" src=\"static/images/girl-walk.png\" alt=\"\" id = " + count.nums + ">") +
                     "</div>";
-                mainR.appendChild(row2);
+                mainR === null || mainR === void 0 ? void 0 : mainR.appendChild(row);
                 break;
             default:
                 break;
         }
-        (document.querySelectorAll('img')).forEach(function (image) {
-            image.addEventListener("click", function (e) {
-                console.log(e);
-            });
-        });
+        row.onclick = function () {
+            console.log(_this.id, _this.gender);
+            ChangeMove(_this.gender, String(_this.id));
+        };
     }
     return Human;
 }());
